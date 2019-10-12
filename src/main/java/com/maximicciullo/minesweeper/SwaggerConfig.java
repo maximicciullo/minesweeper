@@ -3,6 +3,7 @@ package com.maximicciullo.minesweeper;
 import java.util.Collections;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -10,7 +11,10 @@ import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+@Configuration
+@EnableSwagger2
 public class SwaggerConfig {
 	@Bean
 	public Docket api() {
@@ -27,9 +31,9 @@ public class SwaggerConfig {
 		return new ApiInfo(
 				"MineSweeper",
 				"Deviget Challenge",
-				"API",
+				"API V1",
 				null,
-				new Contact("Maximiliano Micciullo", "https://www.linkedin.com/in/maximicciullo/", "mmicciullo@gmail.com"),
+				null,
 				null, null, Collections.emptyList());
 	}
 }
