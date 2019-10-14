@@ -10,10 +10,8 @@ import lombok.Data;
 @Builder
 public class PlayRequest {
 	@NotNull
-	@Min(0)
 	private int column;
 
 	@NotNull
-	@Min(0)
 	private int row;
 }
