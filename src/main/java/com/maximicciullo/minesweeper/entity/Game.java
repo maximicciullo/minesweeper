@@ -38,7 +38,7 @@ public class Game {
 	private long id;
 
 	@Column
-	private String name;
+	private String userName;
 
 	@Column
 	@Enumerated(EnumType.STRING)
@@ -51,9 +51,9 @@ public class Game {
 	@Column
 	private Boolean redFlag;
 
-	public Game(Cell[][] mines, String name) {
+	public Game(Cell[][] mines, String userName) {
 		this.mines = mines;
-		this.name = name;
+		this.userName = userName;
 		this.state = GameStates.ACTIVE;
 		this.redFlag = false;
 	}
