@@ -51,10 +51,14 @@ public class Game {
 	@Column
 	private Boolean redFlag;
 
+	@Column
+	private Boolean questionMark;
+
 	public Game(Cell[][] mines, String userName) {
 		this.mines = mines;
 		this.userName = userName;
 		this.state = GameStates.ACTIVE;
 		this.redFlag = false;
+		this.questionMark = false;
 	}
 }

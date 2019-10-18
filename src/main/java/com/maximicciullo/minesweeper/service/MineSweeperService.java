@@ -1,7 +1,8 @@
 package com.maximicciullo.minesweeper.service;
 
-import com.maximicciullo.minesweeper.model.Board;
+import com.maximicciullo.minesweeper.model.GameBean;
 import com.maximicciullo.minesweeper.model.BoardRequest;
+import com.maximicciullo.minesweeper.model.MarkType;
 import com.maximicciullo.minesweeper.model.PlayRequest;
 
 public interface MineSweeperService {
@@ -13,7 +14,7 @@ public interface MineSweeperService {
 	 * @param boardRequest username, rows, columns, mines
 	 * @return board
 	 */
-	Board createGame(BoardRequest boardRequest);
+	GameBean createGame(BoardRequest boardRequest);
 
 	/**
 	 * Obtain a board for a username persisted.
@@ -21,7 +22,7 @@ public interface MineSweeperService {
 	 * @param username
 	 * @return
 	 */
-	Board getGame(String username);
+	GameBean getGame(String username);
 
 	/**
 	 * Execute the play of the user.
@@ -30,23 +31,14 @@ public interface MineSweeperService {
 	 * @param request row and column to be discovered
 	 * @return board
 	 */
-	Board play(String username, PlayRequest request);
+	GameBean play(String username, PlayRequest request);
 
 	/**
-	 * Given a row and column mark a cell with a ref flag.
+	 * Given a row and column mark a cell with a question symbol or a red flag.
 	 *
-	 * @param username
-	 * @param request row and column to identify the cell
-	 * @return board
-	 */
-	Board redFlag(String username, PlayRequest request);
-
-	/**
-	 * Given a row and column mark a cell with a question symbol.
-	 *
-	 * @param name
+	 * @param userName
 	 * @param request
 	 * @return
 	 */
-	Board questionMark(String name, PlayRequest request);
+	GameBean mark(String userName, PlayRequest request, MarkType markType);
 }

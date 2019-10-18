@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Board {
+public class GameBean {
 	private String name;
 	private GameStates state;
 	private Cell[][] mines;

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.maximicciullo.minesweeper.exception.MinesweeperException;
 import com.maximicciullo.minesweeper.model.BoardRequest;
+import com.maximicciullo.minesweeper.model.MarkType;
 import com.maximicciullo.minesweeper.model.PlayRequest;
 import com.maximicciullo.minesweeper.service.MineSweeperService;
 
@@ -71,7 +72,7 @@ public class MineSweeperController {
 		try {
 			// Get user name in the url path
 			// Call the service in order to set the flag in row and column in the user's game.
-			return ResponseEntity.ok(mineSweeperService.redFlag(userName, request));
+			return ResponseEntity.ok(mineSweeperService.mark(userName, request, MarkType.REDFLAG));
 		} catch (MinesweeperException e) {
 			log.error("[Minesweeper] Failed to set a red flag in row={}, column={} for username={}, exception={}", request.getRow(),
 					request.getColumn(), userName, e);
@@ -84,7 +85,7 @@ public class MineSweeperController {
 		try {
 			// Get user name in the url path
 			// Call the service in order to set the question symbol in row and column in the user's game.
-			return ResponseEntity.ok(mineSweeperService.questionMark(userName, request));
+			return ResponseEntity.ok(mineSweeperService.mark(userName, request, MarkType.QUESTION));
 		} catch (MinesweeperException e) {
 			log.error("[Minesweeper] Failed to set a question symbol in row={}, column={} for username={}, exception={}", request.getRow(),
 					request.getColumn(), userName, e);
